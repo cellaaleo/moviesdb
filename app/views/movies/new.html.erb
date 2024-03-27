@@ -1,0 +1,50 @@
+<h1>New movie:</h1>
+
+<%= form_with model: @movie do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @movie.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :release %><br>
+    <%= form.text_field :release %>
+  </div>
+
+  <div>
+    <%= form.label :country %><br>
+    <%= form.text_field :country %>
+  </div>
+
+  <div>
+    <%= form.label :runtime %><br>
+    <%= form.text_field :runtime %>
+  </div>
+
+  <div>
+    <%= form.label :director %><br>
+    <%= form.text_field :director %>
+  </div>
+
+  <div>
+    <%= form.label :genre %><br>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.label :synopsis %><br>
+    <%= form.text_area :synopsis %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to "HOME (por enqto = lista de filmes, mas o caminho é diferente)", root_path %>
+<br>
+<%= link_to "Lista de filmes", movies_path %>
