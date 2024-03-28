@@ -1,5 +1,16 @@
+<%= link_to "HOME", root_path %>
+<br>
+<%= link_to "Lista de diretores", directors_path %>
+<br>
+
 <h1><%= @director.name %></h1>
 
 <p><%= @director.birthdate %></p>
 <p><%= @director.nationality %></p>
 <p><%= @director.favourite_genre %></p>
+
+<button><%= link_to "Edit", edit_director_path(@director) %></button>
+<button><%= link_to "Delete", edit_director_path(@director), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Hey! Are you sure?"
+                    } %></button>

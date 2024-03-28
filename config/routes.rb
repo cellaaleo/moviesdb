@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "movies#index"
+  root "home#index"
 
   get "/genres",      to: "genres#index"
   get "/genres/:id",  to: "genres#show"
