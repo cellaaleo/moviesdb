@@ -5,12 +5,24 @@
 
 <h1><%= @director.name %></h1>
 
-<p><%= @director.birthdate %></p>
-<p><%= @director.nationality %></p>
-<p><%= @director.favourite_genre %></p>
+<p><strong>Nascimento:</strong> <%= @director.birthdate %></p>
+<p><strong>Nacionalidade:</strong> <%= @director.nationality %></p>
+<p><strong>Gênero favorito:</strong> <%= @director.favourite_genre %></p>
 
-<button><%= link_to "Edit", edit_director_path(@director) %></button>
-<button><%= link_to "Delete", director_path(@director), data: {
+<h2>Filmes do diretor:</h2>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <% if movie.director == @director.name %>
+      <li>
+        <%= link_to movie.title, movie%>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<button><%= link_to "Editar", edit_director_path(@director) %></button>
+<button><%= link_to "Excluir", director_path(@director), data: {
                       turbo_method: :delete,
-                      turbo_confirm: "Hey! Are you sure?"
+                      turbo_confirm: "Tem certeza que quer excluir o(a) diretor(a) '#{@director.name}'?"
                     } %></button>

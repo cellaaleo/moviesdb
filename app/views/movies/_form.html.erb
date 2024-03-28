@@ -1,6 +1,9 @@
+<p>(* campo obrigatório)</p>
+<br>
+
 <%= form_with model: movie do |form| %>
   <div>
-    <%= form.label :title %><br>
+    <%= form.label :title %> <span>*</span><br>
     <%= form.text_field :title %>
     <% @movie.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
@@ -9,7 +12,7 @@
 
   <div>
     <%= form.label :release %><br>
-    <%= form.text_field :release %>
+    <%= form.number_field :release, in: 1900..2024, step: 1  %>
   </div>
 
   <div>

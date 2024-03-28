@@ -5,15 +5,17 @@
 
 <h1><%= @movie.title %></h1>
 
-<p><%= @movie.release %></p>
-<p><%= @movie.country %></p>
-<p><%= @movie.runtime %></p>
-<p><%= @movie.director %></p>
-<p><%= @movie.genre %></p>
+<p><strong>Ano de lançamento:</strong> <%= @movie.release %></p>
+<p><strong>País:</strong> <%= @movie.country %></p>
+<p><strong>Duração:</strong> <%= @movie.runtime %> minutos</p>
+<p><strong>Diretor:</strong> <%= @movie.director %></p>
+<p><strong>Gênero:</strong> <%= @movie.genre %></p>
+
+<h3>Sinopse:</h3>
 <p><%= @movie.synopsis %></p>
 
-<button><%= link_to "Edit", edit_movie_path(@movie) %></button>
-<button><%= link_to "Delete", movie_path(@movie), data: {
+<button><%= link_to "Editar", edit_movie_path(@movie) %></button>
+<button><%= link_to "Excluir", movie_path(@movie), data: {
                       turbo_method: :delete,
-                      turbo_confirm: "Hey! Are you sure?"
+                      turbo_confirm: "Tem certeza que quer excluir o filme '#{@movie.title}'?"
                     } %></button>

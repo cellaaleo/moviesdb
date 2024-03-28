@@ -1,6 +1,9 @@
+<p>(* campo obrigatório)</p>
+<br>
+
 <%= form_with model: genre do |form| %>
   <div>
-    <%= form.label :name %><br>
+    <%= form.label :name %> <span>*</span><br>
     <%= form.text_field :name %>
     <% @genre.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>

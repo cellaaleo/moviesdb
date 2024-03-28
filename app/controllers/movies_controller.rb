@@ -12,7 +12,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-    #@movie = Movie.new(title: "...", release: 0000 , synopsis: "...", country: "...", runtime: 0, director: "...", genre: "...")
     @movie = Movie.new(movie_params)
 
     if @movie.save

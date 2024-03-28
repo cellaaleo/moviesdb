@@ -5,8 +5,20 @@
 
 <h1><%= @genre.name %></h1>
 
-<button><%= link_to "Edit", edit_genre_path(@genre) %></button>
-<button><%= link_to "Delete", genre_path(@genre), data: {
+<ul>
+  <% @movies.each do |movie| %>
+    <% if movie.genre == @genre.name %>
+      <li>
+        <%= link_to movie.title, movie%>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+
+<button><%= link_to "Editar", edit_genre_path(@genre) %></button>
+<button><%= link_to "Excluir", genre_path(@genre), data: {
                       turbo_method: :delete,
-                      turbo_confirm: "Hey! Are you sure?"
+                      turbo_confirm: "Tem certeza que quer excluir o gênero '#{@genre.name}'?"
                     } %></button>

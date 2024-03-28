@@ -1,6 +1,9 @@
+<p>(* campo obrigatório)</p>
+<br>
+
 <%= form_with model: director do |form| %>
   <div>
-    <%= form.label :name %><br>
+    <%= form.label :name %> <span>*</span><br>
     <%= form.text_field :name %>
     <% @director.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
@@ -15,6 +18,13 @@
   <div>
     <%= form.label :birthdate %><br>
     <%= form.text_field :birthdate %>
+  </div>
+
+  <p>mudar o formatado de nascimento depois de modificar a tabela</p>
+  
+  <div>
+  <%# form.label :birthdate %><br>
+  <%#form.date_field :birthdate %>
   </div>
 
   <div>
