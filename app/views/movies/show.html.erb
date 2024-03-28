@@ -13,7 +13,7 @@
 <p><%= @movie.synopsis %></p>
 
 <button><%= link_to "Edit", edit_movie_path(@movie) %></button>
-<button><%= link_to "Delete", edit_movie_path(@movie), data: {
+<button><%= link_to "Delete", movie_path(@movie), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Hey! Are you sure?"
                     } %></button>

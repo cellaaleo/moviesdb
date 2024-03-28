@@ -1,0 +1,12 @@
+<%= link_to "HOME", root_path %>
+<br>
+<%= link_to "Lista de gêneros", genres_path %>
+<br>
+
+<h1><%= @genre.name %></h1>
+
+<button><%= link_to "Edit", edit_genre_path(@genre) %></button>
+<button><%= link_to "Delete", genre_path(@genre), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Hey! Are you sure?"
+                    } %></button>
