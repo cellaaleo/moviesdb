@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+  has_one_attached :cover
+  
   validates :title, presence: true
   #validates :genre, presence: true
   #validates :synopsis, presence: true, length: { minimum: 10 }
