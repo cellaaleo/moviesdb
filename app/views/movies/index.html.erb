@@ -1,10 +1,28 @@
-<h1>Filmes cadastrados:</h1>
+<h1>Filmes lançados:</h1>
 
 <ul>
   <% @movies.each do |movie| %>
-    <li>
-      <%= link_to "#{movie.title} (#{movie.release})", movie%>
-    </li>
+
+    <% if movie.status == 'released' %>
+      <li>
+        <%= link_to "#{movie.title} (#{movie.release})", movie%>
+      </li>
+    <% end %>
+
+  <% end %>
+</ul>
+
+<h1>Próximos Lançamentos:</h1>
+
+<ul>
+  <% @movies.each do |movie| %>
+
+    <% if movie.status == 'coming out' %>
+      <li>
+        <%= link_to "#{movie.title} (#{movie.release})", movie%>
+      </li>
+    <% end %>
+
   <% end %>
 </ul>
 
@@ -12,3 +30,5 @@
 <%= link_to "Cadastre um novo filme", new_movie_path %>
 <br>
 <%= link_to "HOME", root_path %>
+
+

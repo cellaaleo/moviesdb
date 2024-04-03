@@ -12,8 +12,14 @@
 
   <div>
     <%= form.label :release %><br>
-    <%= form.number_field :release, in: 1900..2024, step: 1  %>
+    <%= form.number_field :release, in: 1900..2100, step: 1  %>
   </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['released', 'coming out'], selected: 'released' %>
+  </div>
+
 
   <div>
     <%= form.label :country %><br>
